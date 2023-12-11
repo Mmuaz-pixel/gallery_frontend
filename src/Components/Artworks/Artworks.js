@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import fetchData from '../utility/fetchData';
+import fetchData from '../../utility/fetchData';
 import SingleArtworkCard from './SingleArtworkCard'; 
-import Navbar from './Navbar';
+import Navbar from '../sharedComponents/Navbar';
 
 const Artworks = () => {
 	const [artWorks, setArtWorks] = useState([]);
@@ -32,7 +32,7 @@ const Artworks = () => {
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 	return (
-		<>
+		<div>
 		<Navbar />
 		<h2 className='text-center'>Art Works</h2>
 		<div>
@@ -52,7 +52,7 @@ const Artworks = () => {
 				))}
 			</div>
 		</div>
-		</>
+		</div>
 	);
 };
 

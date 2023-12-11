@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import fetchData from '../utility/fetchData';
+import fetchData from '../../utility/fetchData';
 
 const SingleArtworkCard = (props) => {
 	const [name, setName] = useState('');
