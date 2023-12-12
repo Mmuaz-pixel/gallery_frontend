@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import fetchData from '../utility/fetchData';
-import SingleArtworkCard from './SingleArtworkCard';
-import Navbar from './Navbar';
+import fetchData from '../../utility/fetchData';
+import SingleArtworkCard from './SingleArtworkCard'; 
+import Navbar from '../sharedComponents/Navbar';
 
 const Artworks = () => {
 	const [artWorks, setArtWorks] = useState([]);
@@ -33,25 +33,25 @@ const Artworks = () => {
 
 	return (
 		<>
-			<Navbar />
-			<h2 className='text-center'>Art Works</h2>
-			<div>
-				<div className="row" style={{ width: '95vw', height: 'fit-content', padding: '10px', border: '2px solid black', borderRadius: '10px', boxSizing: 'border-box', margin: '20px' }}>
-					{currentArtworks.map((singleWork) => (
-						<div key={singleWork.id} className="col-md-4 mb-4">
-							{/* Assuming SingleArtworkCard is a component that takes an artwork as a prop */}
-							<SingleArtworkCard artwork={singleWork} />
-						</div>
-					))}
-				</div>
-				<div className="pagination" style={{ margin: '20px' }}>
-					{Array.from({ length: Math.ceil(artWorks.length / artworksPerPage) }, (_, index) => (
-						<button key={index + 1} onClick={() => paginate(index + 1)}>
-							{index + 1}
-						</button>
-					))}
-				</div>
+		<Navbar />
+		<h2 className='text-center'>Art Works</h2>
+		<div>
+			<div className="row" style={{width: '95vw', height: 'fit-content', padding: '10px', border: '2px solid black', borderRadius: '10px', boxSizing: 'border-box', margin: '20px'}}>
+				{currentArtworks.map((singleWork) => (
+					<div key={singleWork.id} className="col-md-4 mb-4">
+						{/* Assuming SingleArtworkCard is a component that takes an artwork as a prop */}
+						<SingleArtworkCard artwork={singleWork} />
+					</div>
+				))}
 			</div>
+			<div className="pagination" style={{margin: '20px'}}>
+				{Array.from({ length: Math.ceil(artWorks.length / artworksPerPage) }, (_, index) => (
+					<button key={index + 1} onClick={() => paginate(index + 1)}>
+						{index + 1}
+					</button>
+				))}
+			</div>
+		</div>
 		</>
 	);
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import fetchData from '../../utility/fetchData';
 import { Link } from 'react-router-dom';
-import fetchData from '../utility/fetchData';
 
 const SingleArtworkCard = (props) => {
 	const [name, setName] = useState('');
@@ -37,7 +37,7 @@ const SingleArtworkCard = (props) => {
 					<h5 className="card-title">{props.artwork.title}</h5>
 					<p className="card-text">{sliceDescription(props.artwork.description)}</p>
 					<h5 className="card-title">Artist: {name}</h5>
-					<Link to="/" className="btn btn-primary">Details</Link>
+					<Link to={`/artwork/${props.artwork._id}`} className="btn btn-primary">Details</Link>
 				</div>
 			</div>
 		</>
